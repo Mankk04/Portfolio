@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayank Arora | Cyber Security & VAPT Professional</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f9; 
+            --text-color: #334155; 
+            --heading-color: #0f172a; 
+            --accent-color: #0284c7; 
+            --card-bg: #ffffff; 
+            --card-border: #e2e8f0; 
+            --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: #ffffff;
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--card-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            color: var(--heading-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .contact-info { margin-top: 20px; }
+        
+        .contact-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--card-border);
+        }
+
+        .contact-info a:hover {
+            color: #ffffff;
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* --- Layout & Sections --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            color: var(--heading-color);
+            margin-bottom: 25px;
+            font-size: 1.75rem;
+            font-weight: 700;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- About Me --- */
+        .about-text p {
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: #475569;
+        }
+
+        .mission-statement {
+            background-color: #f0f9ff;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            margin-top: 20px;
+            color: #0f172a;
+            font-weight: 500;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- Finest Specialties Grid --- */
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .specialty-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            border-top: 4px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .specialty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .specialty-card h3 {
+            color: var(--heading-color);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+        .specialty-card p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+        .highlight { 
+            color: var(--accent-color); 
+            font-weight: 600; 
+        }
+
+        /* --- Grid for Tools & DF --- */
+        .split-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        ul { list-style: none; }
+        li { 
+            margin-bottom: 12px; 
+            padding-left: 24px; 
+            position: relative; 
+            font-size: 1rem;
+        }
+        li::before { 
+            content: "•"; 
+            position: absolute; 
+            left: 0; 
+            color: var(--accent-color); 
+            font-size: 1.5rem;
+            line-height: 1rem;
+            top: 2px;
+        }
+
+        /* --- Showcase & Certs --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .gallery-item {
+            height: 120px;
+            background-color: #f8fafc;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            padding: 15px;
+        }
+        .gallery-item:hover {
+            background-color: var(--card-bg);
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+        }
+        .gallery-item span {
+            color: var(--heading-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .gallery-item small { 
+            color: var(--accent-color); 
+            margin-top: 8px; 
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* --- Cert Tabs --- */
+        .cert-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 0px;
+        }
+        .cert-btn {
+            background: transparent;
+            color: #64748b;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            transition: all 0.2s ease;
+            margin-bottom: -2px; 
+        }
+        .cert-btn:hover {
+            color: var(--accent-color);
+        }
+        .cert-btn.active {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+        .cert-category { display: none; animation: fadeIn 0.4s ease; }
+        .cert-category.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- Lightbox Modal --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(15, 23, 42, 0.85); 
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            width: 90%; 
+            max-width: 900px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 15px; right: 25px;
+            color: #94a3b8;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close-btn:hover { color: #ef4444; }
+        
+        .modal-img-container {
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .modal-img-container img {
+            max-width: 100%;
+            max-height: 65vh;
+            border-radius: 4px;
+            object-fit: contain;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Profile Picture Tagged to pic1.jpg -->
+        <img src="pic1.jpeg" alt="Mayank Arora" class="profile-img">
+        <h1>Mayank Arora</h1>
+        <div class="subtitle">Cyber Security Researcher | VAPT | Digital Forensics</div>
+        <div class="contact-info">
+            <a href="mailto:themayankarora44@gmail.com">Email Me</a>
+            <a href="tel:+917417944156">+91 7417944156</a>
+            <a href="https://www.linkedin.com/in/mayank-arora-b1b805376/" target="_blank">LinkedIn Profile</a>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Me Section -->
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="card about-text">
+            <p><strong>A self-taught professional with a profound interest in Cyber Security.</strong></p>
+            <p>Hi, I am Mayank. My core interest has always been in Cyber Security. I want to ensure that security remains a top priority within our rapidly developing digital world, and I am driven to actively contribute to a more secure enterprise environment.</p>
+            <p>I stay relevant by actively solving Capture The Flag (CTF) challenges and following the latest IT developments. I also keep myself busy by listening to music, gaming, and following educational podcasts like TED Talks. My primary objective is to continuously improve my skills within the Cyber Security field to become an elite Penetration Tester.</p>
+            <p>I maintain a close eye on newly discovered vulnerabilities and regularly challenge myself with unresolved security weaknesses.</p>
+            <div class="mission-statement">
+                "Ultimately, my highest aspiration is to serve the nation. I am deeply driven by the goal to work alongside military and government organizations as a dedicated cybersecurity researcher, protecting critical national infrastructure and defending against advanced persistent threats."
+            </div>
+        </div>
+
+        <!-- Specialties Grid -->
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="specialties-grid">
+            <div class="specialty-card">
+                <h3>Security Operations (SOC)</h3>
+                <p>Experienced in continuous monitoring, threat hunting, and incident response. Familiar with leveraging <span class="highlight">SIEM platforms, Log Analysis, and endpoint data</span> to detect, analyze, and mitigate active cyber threats across enterprise networks.</p>
+            </div>
+            <div class="specialty-card">
+                <h3>Network Security</h3>
+                <p>Proficient in utilizing industry-standard methodologies and tools such as <span class="highlight">Airmon-ng, Evil Twin, Wireshark, and Bettercap</span>. This enables me to conduct thorough network analyses, identify vulnerabilities, and secure potential entry points.</p>
+            </div>
+            <div class="specialty-card">
+                <h3>Web Application Testing</h3>
+                <p>Skilled in identifying and mitigating critical vulnerabilities such as <span class="highlight">SQL/XSS injections, SSRF, Open Redirects, and CORS misconfigurations</span>. I ensure databases, administrative panels, and sensitive data remain protected from exploitation.</p>
+            </div>
+            <div class="specialty-card">
+                <h3>Authentication Auditing</h3>
+                <p>Experienced in evaluating password robustness using techniques like <span class="highlight">Cryptography, Pass-The-Hash, Bruteforce, and Phishing simulations</span>. This allows me to assess the true security posture of enterprise authentication systems.</p>
+            </div>
+            <div class="specialty-card">
+                <h3>Infrastructure Security</h3>
+                <p>Capable of assessing server resilience using tools and methods like <span class="highlight">Nmap, TCP/UDP mapping, FTP/SSH auditing, and Firewall Bypass analysis</span> to ensure robust defense mechanisms against service disruption.</p>
+            </div>
+        </div>
+
+        <!-- DF & Experience Split -->
+        <div class="split-grid">
+            <div class="card">
+                <h2 class="section-title" style="font-size: 1.4rem;">Digital Forensics & Incident Response</h2>
+                <ul>
+                    <li><strong>Lifecycle Proficiency:</strong> Deep understanding of the core forensic phases: Identification, Preservation, Analysis, and Reporting.</li>
+                    <li><strong>Advanced Tooling:</strong> Hands-on experience utilizing standard forensic toolkits including <span class="highlight">FTK Imager, Autopsy, and Volatility</span> for comprehensive disk, file system, and memory analysis.</li>
+                    <li><strong>Evidence Handling:</strong> Strict adherence to legal standards, maintaining meticulous Chain of Custody logs, secure imaging, and formal forensic reporting.</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2 class="section-title" style="font-size: 1.4rem;">Experience Highlights</h2>
+                <ul>
+                    <li><strong>Microsoft Security Response Center:</strong> Successfully identified and responsibly disclosed a CORS misconfiguration vulnerability.</li>
+                    <li><strong>Vulnerability Documentation:</strong> Developed and hosted functional Proof of Concepts (PoCs) for XSS and CORS vulnerabilities.</li>
+                    <li><strong>Systems Administration:</strong> Proficient in Kali Linux administration and developing Python-based automation scripts for security workflows.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tool Screenshots -->
+        <h2 class="section-title">Tool Proficiency & Documentation</h2>
+        <div class="gallery-grid" style="margin-bottom: 50px;">
+            <!-- Appended the actual image files to the openModal function -->
+            <div class="gallery-item" onclick="openModal('Burp Suite Setup / Attack Execution', 'pic2.png')">
+                <span>Burp Suite</span><small>View Documentation</small>
+            </div>
+            <div class="gallery-item" onclick="openModal('Metasploit Framework Operations', 'pic3.png')">
+                <span>Metasploit</span><small>View Documentation</small>
+            </div>
+            <div class="gallery-item" onclick="openModal('Reconnaissance Tools (Nmap)', 'pic4.png')">
+                <span>Nmap</span><small>View Documentation</small>
+            </div>
+            <div class="gallery-item" onclick="openModal('Wireshark Packet & Network Analysis', 'pic5.png')">
+                <span>Wireshark</span><small>View Documentation</small>
+            </div>
+        </div>
+
+        <!-- Certificates -->
+        <h2 class="section-title">Certifications & Achievements</h2>
+        <div class="cert-controls">
+            <button class="cert-btn active" onclick="switchTab('redteam', this)">Red Team (3)</button>
+            <button class="cert-btn" onclick="switchTab('ctf', this)">CTF Completions (3)</button>
+            <button class="cert-btn" onclick="switchTab('udemy', this)">Professional Courses (2)</button>
+        </div>
+
+        <!-- Red Team Certificates -->
+        <div id="redteam" class="cert-category active">
+            <div class="gallery-grid">
+                <!-- Cert Images passed to the function -->
+                <div class="gallery-item" onclick="openModal('Red Team Certification I', 'pic6.png')">
+                    <span>Red Team Cert I</span><small>View Credential</small>
+                </div>
+                <div class="gallery-item" onclick="openModal('Red Team Certification II', 'pic7.png')">
+                    <span>Red Team Cert II</span><small>View Credential</small>
+                </div>
+                <div class="gallery-item" onclick="openModal('Red Team Certification III', 'pic8.png')">
+                    <span>Red Team Cert III</span><small>View Credential</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTF Certificates -->
+        <div id="ctf" class="cert-category">
+            <div class="gallery-grid">
+                <!-- Cert Images passed to the function -->
+                <div class="gallery-item" onclick="openModal('Capture The Flag Achievement I', 'pic9.png')">
+                    <span>CTF Achievement I</span><small>View Credential</small>
+                </div>
+                <div class="gallery-item" onclick="openModal('Capture The Flag Achievement II', 'pic10.png')">
+                    <span>CTF Achievement II</span><small>View Credential</small>
+                </div>
+                <div class="gallery-item" onclick="openModal('Capture The Flag Achievement III', 'pic11.png')">
+                    <span>CTF Achievement III</span><small>View Credential</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Udemy Certificates -->
+        <div id="udemy" class="cert-category">
+            <div class="gallery-grid">
+                <!-- Cert Images passed to the function -->
+                <div class="gallery-item" onclick="openModal('Advanced Security Course I', 'pic12.jpg')">
+                    <span>Security Course I</span><small>View Credential</small>
+                </div>
+                <div class="gallery-item" onclick="openModal('Advanced Security Course II', 'pic13.jpg')">
+                    <span>Security Course II</span><small>View Credential</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Lightbox Modal with Dynamic Image Tag -->
+    <div id="certModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle" style="color: var(--heading-color); font-size: 1.5rem;">Document Viewer</h2>
+            <div class="modal-img-container">
+                <!-- This image source is automatically updated by JavaScript -->
+                <img id="modalImage" src="" alt="Document Preview">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Switcher Logic
+        function switchTab(categoryId, buttonElement) {
+            document.querySelectorAll('.cert-category').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.cert-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(categoryId).classList.add('active');
+            buttonElement.classList.add('active');
+        }
+
+        // Updated Modal Logic to Handle Image Sources
+        const modal = document.getElementById('certModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalImage = document.getElementById('modalImage');
+
+        function openModal(title, imageSrc) {
+            modalTitle.innerText = title;
+            modalImage.src = imageSrc; // Sets the correct image dynamically
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modalImage.src = ""; // Clears the image when closed
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) closeModal();
+        }
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") closeModal();
+        });
+    </script>
+</body>
+</html>
