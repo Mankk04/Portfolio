@@ -10,6 +10,7 @@
             --text-color: #334155; 
             --heading-color: #0f172a; 
             --accent-color: #0284c7; 
+            --accent-color-dark: #0369a1;
             --card-bg: #ffffff; 
             --card-border: #e2e8f0; 
             --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -28,6 +29,34 @@
             font-family: var(--font-main);
             line-height: 1.6;
             overflow-x: hidden; /* Prevents horizontal scroll */
+        }
+
+        /* --- Sticky Nav --- */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 500;
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            padding: 10px 15px;
+            flex-wrap: wrap;
+        }
+        .top-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .top-nav a:hover {
+            color: var(--accent-color);
+            background-color: #f0f9ff;
         }
 
         /* --- Header --- */
@@ -94,6 +123,17 @@
             color: #ffffff;
             background-color: var(--accent-color);
             border-color: var(--accent-color);
+        }
+
+        .contact-info a.resume-btn {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border-color: var(--accent-color);
+            font-weight: 700;
+        }
+        .contact-info a.resume-btn:hover {
+            background-color: var(--accent-color-dark);
+            border-color: var(--accent-color-dark);
         }
 
         /* --- Layout & Sections --- */
@@ -201,6 +241,95 @@
             font-size: 1.5rem;
             line-height: 1rem;
             top: 2px;
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.12);
+        }
+        .project-thumb {
+            width: 100%;
+            height: 180px;
+            background-color: #0f172a;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .project-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .project-thumb:hover img {
+            transform: scale(1.06);
+        }
+        .project-body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-body h3 {
+            color: var(--heading-color);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        .project-body p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+        .project-tags span {
+            background-color: #f0f9ff;
+            color: var(--accent-color-dark);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            border: 1px solid #bae6fd;
+        }
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+        .project-links a {
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            transition: all 0.2s ease;
+        }
+        .project-links a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
         }
 
         /* --- Showcase & Certs --- */
@@ -330,6 +459,45 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px 20px 40px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        footer a:hover { text-decoration: underline; }
+
+        /* --- Back to top --- */
+        #backToTop {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 12px rgba(2, 132, 199, 0.35);
+            z-index: 600;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        #backToTop:hover {
+            background-color: var(--accent-color-dark);
+            transform: translateY(-3px);
+        }
+
         /* --- MOBILE RESPONSIVENESS (MEDIA QUERIES) --- */
         @media (max-width: 768px) {
             header {
@@ -357,7 +525,7 @@
             .card { padding: 20px; }
             .section-title { font-size: 1.4rem; }
 
-            .specialties-grid, .split-grid {
+            .specialties-grid, .split-grid, .projects-grid {
                 grid-template-columns: 1fr; /* Forces 1 column on smaller screens */
             }
 
@@ -383,6 +551,9 @@
             .close-btn {
                 top: 5px; right: 15px;
             }
+
+            .top-nav { gap: 2px; }
+            .top-nav a { padding: 6px 10px; font-size: 0.82rem; }
         }
 
         @media (max-width: 480px) {
@@ -396,6 +567,16 @@
 </head>
 <body>
 
+    <!-- Sticky Nav -->
+    <nav class="top-nav">
+        <a href="#about">About</a>
+        <a href="#competencies">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#df-experience">Experience</a>
+        <a href="#tools">Tools</a>
+        <a href="#certifications">Certifications</a>
+    </nav>
+
     <header>
         <!-- Profile Picture Tagged to pic1.jpeg -->
         <img src="pic1.jpeg" alt="Mayank Arora" class="profile-img">
@@ -405,13 +586,15 @@
             <a href="mailto:themayankarora44@gmail.com">Email Me</a>
             <a href="tel:+917417944156">+91 7417944156</a>
             <a href="https://www.linkedin.com/in/mayank-arora-b1b805376/" target="_blank">LinkedIn Profile</a>
+            <!-- Place your resume file (e.g. Mayank_Arora_Resume.pdf) in the same folder as this page -->
+            <a href="Mayank_Arora_Resume.pdf" class="resume-btn" download>⬇ Download Resume</a>
         </div>
     </header>
 
     <div class="container">
         
         <!-- About Me Section -->
-        <h2 class="section-title">Professional Summary</h2>
+        <h2 class="section-title" id="about">Professional Summary</h2>
         <div class="card about-text">
             <p><strong>A self-taught professional with a profound interest in Cyber Security.</strong></p>
             <p>Hi, I am Mayank. My core interest has always been in Cyber Security. I want to ensure that security remains a top priority within our rapidly developing digital world, and I am driven to actively contribute to a more secure enterprise environment.</p>
@@ -423,7 +606,7 @@
         </div>
 
         <!-- Specialties Grid -->
-        <h2 class="section-title">Core Competencies</h2>
+        <h2 class="section-title" id="competencies">Core Competencies</h2>
         <div class="specialties-grid">
             <div class="specialty-card">
                 <h3>Security Operations (SOC)</h3>
@@ -447,8 +630,50 @@
             </div>
         </div>
 
+        <!-- Projects Section -->
+        <h2 class="section-title" id="projects">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-thumb" onclick="openModal('LLM Guard — Project Overview', 'project1.png')">
+                    <img src="project1.png" alt="LLM Guard project screenshot">
+                </div>
+                <div class="project-body">
+                    <h3>LLM Guard</h3>
+                    <p>A security-focused tool built to detect and mitigate risks in LLM-integrated applications — covering prompt injection detection, sensitive data leakage checks, and output sanitization before responses reach end users.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>LLM Security</span>
+                        <span>Prompt Injection</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" onclick="openModal('LLM Guard — Project Overview', 'project1.png'); return false;">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-thumb" onclick="openModal('GovernX — Project Overview', 'project2.png')">
+                    <img src="project2.png" alt="GovernX project screenshot">
+                </div>
+                <div class="project-body">
+                    <h3>GovernX</h3>
+                    <p>A governance, risk, and compliance (GRC) oriented platform designed to help teams track security policies, audit findings, and compliance posture in one centralized, easy-to-navigate dashboard.</p>
+                    <div class="project-tags">
+                        <span>GRC</span>
+                        <span>Compliance</span>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" onclick="openModal('GovernX — Project Overview', 'project2.png'); return false;">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p style="font-size:0.85rem; color:#64748b; margin-top:-25px; margin-bottom:40px;">
+            * Update the descriptions above with your own project details, add live/GitHub links inside the <code>project-links</code> divs, and place <code>project1.png</code> / <code>project2.png</code> screenshots in this folder.
+        </p>
+
         <!-- DF & Experience Split -->
-        <div class="split-grid">
+        <div class="split-grid" id="df-experience">
             <div class="card">
                 <h2 class="section-title" style="font-size: 1.4rem;">Digital Forensics & Incident Response</h2>
                 <ul>
@@ -470,7 +695,7 @@
         </div>
 
         <!-- Tool Screenshots -->
-        <h2 class="section-title">Tool Proficiency & Documentation</h2>
+        <h2 class="section-title" id="tools">Tool Proficiency & Documentation</h2>
         <div class="gallery-grid" style="margin-bottom: 50px;">
             <div class="gallery-item" onclick="openModal('Burp Suite Setup / Attack Execution', 'pic2.png')">
                 <span>Burp Suite</span><small>View Documentation</small>
@@ -487,10 +712,10 @@
         </div>
 
         <!-- Certificates -->
-        <h2 class="section-title">Certifications & Achievements</h2>
+        <h2 class="section-title" id="certifications">Certifications & Achievements</h2>
         <div class="cert-controls">
             <button class="cert-btn active" onclick="switchTab('redteam', this)">Red Team (3)</button>
-            <button class="cert-btn" onclick="switchTab('ctf', this)">CTF Completions (3)</button>
+            <button class="cert-btn" onclick="switchTab('ctf', this)">CTF Completions (5)</button>
             <button class="cert-btn" onclick="switchTab('udemy', this)">Professional Courses (2)</button>
         </div>
 
@@ -509,7 +734,7 @@
             </div>
         </div>
 
-        <!-- CTF Certificates -->
+        <!-- CTF Certificates (now 5) -->
         <div id="ctf" class="cert-category">
             <div class="gallery-grid">
                 <div class="gallery-item" onclick="openModal('Capture The Flag Achievement I', 'pic9.png')">
@@ -520,6 +745,12 @@
                 </div>
                 <div class="gallery-item" onclick="openModal('Capture The Flag Achievement III', 'pic11.png')">
                     <span>CTF Achievement III</span><small>View Credential</small>
+                </div>
+                <div class="gallery-item" onclick="openModal('Capture The Flag Achievement IV', 'pic14.png')">
+                    <span>CTF Achievement IV</span><small>View Credential</small>
+                </div>
+                <div class="gallery-item" onclick="openModal('Capture The Flag Achievement V', 'pic15.png')">
+                    <span>CTF Achievement V</span><small>View Credential</small>
                 </div>
             </div>
         </div>
@@ -537,6 +768,16 @@
         </div>
 
     </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Mayank Arora. Built with a focus on security, precision, and continuous learning.</p>
+        <p style="margin-top:6px;">
+            <a href="mailto:themayankarora44@gmail.com">themayankarora44@gmail.com</a> ·
+            <a href="https://www.linkedin.com/in/mayank-arora-b1b805376/" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <button id="backToTop" title="Back to top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
     <!-- Lightbox Modal with Dynamic Image Tag -->
     <div id="certModal" class="modal">
@@ -583,6 +824,15 @@
         }
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") closeModal();
+        });
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Back to top button visibility
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            backToTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
         });
     </script>
 </body>
